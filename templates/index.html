@@ -1,0 +1,42 @@
+{%extends "base.html"%}
+{% load urltags %}
+{% load staticfiles %}
+
+  {%block title%}
+    Website redirection
+  {%endblock%}
+  
+  {%block maintitle%}
+    Welcome to oOoPpSs!!! We'll redirect you.
+  {%endblock%}
+
+  {%block pagecontent %}
+    {{content}}
+  {%endblock%}
+
+  {%block content%}
+    {% if layouts %}
+      {% for kmp in layouts %}
+        <a href={{kmp}}> {{kmp}}</a>   
+      {% endfor %}
+    {% endif %}
+    </br></br>
+    {% if allurls %}
+      <div class="ooourls">
+      {% for url in allurls %}
+        <div class="ooourl">
+        {% if url.urlname|image_exists %}
+          <img src="{% static "favicon/"|add:url.urlname|add:".ico" %}" width="32" height="32"> 
+        {% else %}
+          <img src="{% static "favicon/favicon.ico" %}" width="32" height="32"> 
+        {% endif %}
+        <a href=en/{{url.urlname}}> {{url.urlname}}</a>   
+        </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+  {%endblock%}
+
+
+
+

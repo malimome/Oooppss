@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+{% load urltags %}
+{% load staticfiles %}
+  {%block title%} 
+    Website redirection - layout {{layout}}
+  {%endblock%}
+  
+  {%block pagecontent %}
+    Here is the list of supported websites for the {{layout}} layout. Because of
+    a number of technical issues, we are not able to support all websites, but
+    we will support many others in near future.
+  {% endblock %}
+
+  {%block content%}
+    {% if allurls %}
+      <div class="ooourls">
+      {% for url in allurls %}
+        <div class="ooourl">
+        {% if url.urlname|image_exists %}
+          <img src="{% static "favicon/"|add:url.urlname|add:".ico" %}" width="32" height="32"> 
+        {% else %}
+          <img src="{% static "favicon/favicon.ico" %}" width="32" height="32"> 
+        {% endif %}
+        <a href={{layout}}/{{url.urlname}}> {{url.urlname}}</a>   
+        </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+  {%endblock%}
+  

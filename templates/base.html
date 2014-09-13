@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>
+      {%block title %}{%endblock%}
+    </title>
+      <meta charset="UTF-8">
+      <link rel="shortcut icon" href="{% static "images/favicon.ico" %} ">
+      <link href="{% static "main.css" %}" rel="stylesheet" type="text/css">
+      {%block metatag %}{%endblock%}
+{# if settings.GOOGLE_KEY #}
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://168.144.91.178/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "2"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+{# endif #}
+
+  </head>
+  <body>
+    <div class='mainmenu'>
+      <ul class='navbar'>
+        <li>
+          <a href='/'> Home </a>
+        </li>
+        <li>
+          <a href='about'> About Us </a>
+        </li>
+      </ul>
+    </div>
+
+    <div id='logo'>
+      <ul class='logotitle'>
+        <li>
+          <img src='{% static "images/hurlogo.png"%}' class='logo'> 
+        </li>
+        <li id='maintitle'>
+          Welcome to oOoPpSs!!! We'll redirect you.
+          {#{%block maintitle %} {%endblock%}#}
+        </li>
+      </ul>
+    </div>
+
+    <div class="pagecontent">
+      {%block pagecontent %}{%endblock%}
+    </div>
+
+    <div class="content">
+      {%block content %}{%endblock%}
+    </div>
+
+    <div class='footermenu'>
+      <ul class='footernavbar'>
+        <li>
+          <a href='/'> Home </a>
+        </li>
+        <li>
+          <a href='copyright'> Copyright </a>
+        </li>
+      </ul>
+    </div>
+
+  </body>
+</html>

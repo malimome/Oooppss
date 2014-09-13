@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+  {%block title%} OoOppSS! Click to go to {{urlname}} ... {%endblock%}
+
+  {%block metatag%}
+  <meta http-equiv="refresh" content="1;URL=http://www.{{urlname}}">
+  {%endblock%}
+
+  {%block pagecontent %}
+    We are working hard to redirect you to {{urlname}} in 1 seconds guaranteed!
+    </ br>
+    Please wait....
+  {%endblock %}
+
+  {%block content%}
+    <h1>{{urlname}} for layout {{layout}}</h1> redirecting to {{urlname}}
+    <p></p>
+    <div class="oootypos">
+    {% for typo in typos %}
+      <div class="oootypo">
+        {{typo}}    
+      </div>
+    {% endfor %}
+    </div>
+  {%endblock%}
